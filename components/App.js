@@ -81,7 +81,7 @@ App = React.createClass({
                     searchingText: searchingText
                 });
             })
-            .catch(error => console.error('Wystąpił błąd: ', error));
+            .catch(error => console.log('Wystąpił błąd: ', error));
     },
     
     render: function () {
