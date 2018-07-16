@@ -31,7 +31,7 @@ App = React.createClass({
         return new Promise(
             function(resolve, reject) {
             const request = new XMLHttpRequest();
-            var url = 'http://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText;
+            var url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText;
             request.open('GET', url);
             request.onload = function () {
                 if (request.status === 200) {
