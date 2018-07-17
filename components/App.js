@@ -6,69 +6,33 @@ App = React.createClass({
             gif: {}
         };
     },
-    
-    /*
-    getGif: function (searchingText, callback) {
-        var url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText).data;
-                var gif = {
-                    url: data.fixed_width_downsampled_url,
-                    sourceUrl: data.url
-                };
-                callback(gif);
-            }
-        };
-        xhr.send();
-    },
-    
-    */
-    
-    getGif: function(searchingText) {
+
+    getGif: function (searchingText) {
         return new Promise(
-            function(resolve, reject) {
-            const request = new XMLHttpRequest();
-            var url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText;
-            request.open('GET', url);
-            request.onload = function () {
-                if (request.status === 200) {
-                    var data = JSON.parse(request.responseText).data; 
-                    var gif = { 
-                        url: data.fixed_width_downsampled_url,
-                        sourceUrl: data.url
-                    };
-                    resolve(gif);
-                } else {
-                    reject(new Error(this.statusText)); 
-                }
-            };
-            request.onerror = function () {
-                reject(new Error(
-                    `XMLHttpRequest Error: ${this.statusText}`));
-            };
-            request.send();
-        });
+            function (resolve, reject) {
+                const request = new XMLHttpRequest();
+                var url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText;
+                request.open('GET', url);
+                request.onload = function () {
+                    if (request.status === 200) {
+                        var data = JSON.parse(request.responseText).data;
+                        var gif = {
+                            url: data.fixed_width_downsampled_url,
+                            sourceUrl: data.url
+                        };
+                        resolve(gif);
+                    } else {
+                        reject(new Error(this.statusText));
+                    }
+                };
+                request.onerror = function () {
+                    reject(new Error(
+                        `XMLHttpRequest Error: ${this.statusText}`));
+                };
+                request.send();
+            });
     },
 
-    
-    /*
-    handleSearch: function (searchingText) {
-        this.setState({
-            loading: true
-        });
-        this.getGif(searchingText, function (gif) {
-            this.setState({
-                loading: false,
-                gif: gif,
-                searchingText: searchingText
-            });
-        }.bind(this));
-    },
-    */
-    
     handleSearch: function (searchingText) {
         this.setState({
             loading: true
@@ -83,7 +47,7 @@ App = React.createClass({
             })
             .catch(error => console.log('Wystąpił błąd: ', error));
     },
-    
+
     render: function () {
         var styles = {
             margin: '0 auto',
