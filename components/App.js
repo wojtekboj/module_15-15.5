@@ -37,6 +37,7 @@ App = React.createClass({
         this.setState({
             loading: true
         });
+        
         this.getGif(searchingText)
             .then(gif => {
                 this.setState({
