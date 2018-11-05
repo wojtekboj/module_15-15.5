@@ -25,6 +25,7 @@ The following tools were used
 * Git
 * NPM
 * <a href="https://reactjs.org/">React</a>
+* <a href="https://api.giphy.com">Giphy Api</a>
 
 ## Screen 
 
